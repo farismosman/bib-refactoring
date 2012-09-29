@@ -24,10 +24,7 @@ public class Program {
             }
 
             if (i1 == 1) {
-                System.out.println(" 1. Sweet Valley High vol. 4 by John Travolta ");
-                System.out.println(" 2. eXtreme Programming Explained by Kent Beck ");
-                System.out.println(" 3. How to Win Friends and Influence People by Dale Carnagie ");
-                System.out.println(" 4. How to Cheat at TWU Assignements by Anonymous ");
+                allBooks();
             } else if (i1 == 2) {
                 System.out.println(" Please enter the number of the book you wish to checkout: ");
                 int i2 = 0;
@@ -60,14 +57,7 @@ public class Program {
                         System.out.println("Sorry we don't have that book yet.");
                 }
             } else if (i1 == 3) {
-                if (loggedIn()) {
-                    System.out.println("\n");
-                    System.out.println("Your library number is " + savedLibraryNumber);
-                } else {
-
-                    System.out.println("\n");
-                    System.out.println("Please talk to Librarian. Thank you.");
-                }
+                checkLibNumber();
             } else if (i1 == 4) {
                 System.out.println(createMovie("Rocky", "John G. Avildsen", "10"));
                 System.out.println(createMovie("Rocky II", "John G. Avildsen", "9"));
@@ -108,6 +98,24 @@ public class Program {
                 System.out.println("Enter a valid integer!!");
             }
         }
+    }
+
+    private static void checkLibNumber() {
+        if (loggedIn()) {
+            System.out.println("\n");
+            System.out.println("Your library number is " + savedLibraryNumber);
+        } else {
+
+            System.out.println("\n");
+            System.out.println("Please talk to Librarian. Thank you.");
+        }
+    }
+
+    private static void allBooks() {
+        System.out.println(" 1. Sweet Valley High vol. 4 by John Travolta ");
+        System.out.println(" 2. eXtreme Programming Explained by Kent Beck ");
+        System.out.println(" 3. How to Win Friends and Influence People by Dale Carnagie ");
+        System.out.println(" 4. How to Cheat at TWU Assignements by Anonymous ");
     }
 
     private static void menuOption() {
