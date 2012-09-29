@@ -10,16 +10,7 @@ public class Program {
     public static void main(String[] args) {
         while (true) {
             welcomeMessage();
-            System.out.println("*                Menu                                    *");
-            System.out.println("*         =====================                          *");
-            System.out.println("*         1. List Book Catalog                           *");
-            System.out.println("*         2. Check out Book                              *");
-            System.out.println("*         3. Check Library Number                        *");
-            System.out.println("*         4. Movie Listing                               *");
-            System.out.println("*         5. Login                                       *");
-            System.out.println("*         9. Exit                                        *");
-            System.out.println("**********************************************************");
-            System.out.println("Your Selection: ");
+            menuOption();
 
             InputStreamReader inputStream = new InputStreamReader(System.in);
             BufferedReader reader = new BufferedReader(inputStream);
@@ -117,6 +108,19 @@ public class Program {
                 System.out.println("Enter a valid integer!!");
             }
         }
+    }
+
+    private static void menuOption() {
+        System.out.println("*                Menu                                    *");
+        System.out.println("*         =====================                          *");
+        System.out.println("*         1. List Book Catalog                           *");
+        System.out.println("*         2. Check out Book                              *");
+        System.out.println("*         3. Check Library Number                        *");
+        System.out.println("*         4. Movie Listing                               *");
+        System.out.println("*         5. Login                                       *");
+        System.out.println("*         9. Exit                                        *");
+        System.out.println("**********************************************************");
+        System.out.println("Your Selection: ");
     }
 
     private static void welcomeMessage() {
