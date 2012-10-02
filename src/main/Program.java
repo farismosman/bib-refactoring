@@ -26,15 +26,7 @@ public class Program {
             if (i1 == 1) {
                 allBooks();
             } else if (i1 == 2) {
-                System.out.println(" Please enter the number of the book you wish to checkout: ");
-                int i2 = 0;
-                try {
-                    i2 = Integer.parseInt(reader.readLine());
-                } catch (Exception e) {
-                    // Do you know what numbers are!!!
-                    System.out.println("Enter a valid integer!!");
-
-                }
+                int i2 = chooseABook(reader);
                 switch (i2) {
                     case 1:
                         System.out.println("\n");
@@ -98,6 +90,19 @@ public class Program {
                 System.out.println("Enter a valid integer!!");
             }
         }
+    }
+
+    private int chooseABook(BufferedReader reader) {
+        System.out.println(" Please enter the number of the book you wish to checkout: ");
+        int i2 = 0;
+        try {
+            i2 = Integer.parseInt(reader.readLine());
+        } catch (Exception e) {
+            // Do you know what numbers are!!!
+            System.out.println("Enter a valid integer!!");
+
+        }
+        return i2;
     }
 
     private void checkLibNumber() {
