@@ -2,8 +2,6 @@ package main;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Program {
     private boolean loggedIn = false;
@@ -68,24 +66,19 @@ public class Program {
     }
 
     private void reserveABook() {
-        int bookNumber = chooseABook(reader);
-        List<Integer> booksKeys = new ArrayList<Integer>();
-        booksKeys.add(1);
-        booksKeys.add(2);
-        booksKeys.add(3);
-        booksKeys.add(4);
-        if (booksKeys.contains(bookNumber)){
+        int bookNumber = chooseABook();
+        if (booksFactory.booksId().contains(bookNumber)){
             System.out.println("\n Thank You! Enjoy the book.");
         } else {
             System.out.println("\nSorry we don't have that book yet.");
         }
     }
 
-    private int chooseABook(BufferedReader reader) {
+    private int chooseABook() {
         System.out.println(" Please enter the number of the book you wish to checkout: ");
         int bookNumber = 0;
         try {
-            bookNumber = Integer.parseInt(reader.readLine());
+            bookNumber = Integer.parseInt(getInput());
         } catch (Exception e) {
             // Do you know what numbers are!!!
             System.out.println("Enter a valid integer!!");
