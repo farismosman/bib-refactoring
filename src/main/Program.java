@@ -20,11 +20,11 @@ public class Program {
             welcomeMessage();
             menu.menuOption();
 
-            int userInput = getInput();
+            int userInput = Integer.parseInt(getInput());
             if (userInput == 1) {
                 booksFactory.books();
             } else if (userInput == 2) {
-                processBook();
+                reserveABook();
             } else if (userInput == 3) {
                 checkLibNumber();
             } else if (userInput == 4) {
@@ -32,51 +32,42 @@ public class Program {
             } else if (userInput == 5) {
                 clearLogin();
                 loginUser();
-
             } else if (userInput == 9) {
                 System.out.println("Quitting...");
                 break;
             } else {
-                System.out.println("\n");
-                System.out.println("Enter a valid integer!!");
+                System.out.println("\nEnter a valid integer!!");
             }
         }
     }
 
     private void loginUser() {
-        System.out.println("Enter your library number");
         try {
-            String libraryNumber = reader.readLine();
-            if (validLibraryNumber(libraryNumber)) {
-                System.out.println("Enter your Password: ");
-                try {
-                    String password = reader.readLine();
-                    if (validPassword(password)) {
-                        loggedIn = true;
-                        savedLibraryNumber = libraryNumber;
-                    }
-                } catch (Exception e) {
-                    System.out.println("Invalid password");
-                }
+            System.out.println("Enter your library number");
+            String libraryNumber = getInput();
+            System.out.println("Enter your Password: ");
+            String password = getInput();
+            if (validLibraryNumber(libraryNumber) && validPassword(password)) {
+                loggedIn = true;
+                savedLibraryNumber = libraryNumber;
             }
         } catch (Exception e) {
-            System.out.println("Invalid username");
+            System.out.println("Invalid username or password");
         }
     }
 
-    private int getInput() {
-        int userInput = 0;
+    private String getInput() {
+        String userInput = "";
         try {
-            String value = reader.readLine();
-            userInput = Integer.parseInt(value);
+            userInput = reader.readLine();
         } catch (Exception e) {
             // Do you know what numbers are!!!
-            System.out.println("Enter a valid integer!!");
+            System.out.println("Enter a valid input!!");
         }
         return userInput;
     }
 
-    private void processBook() {
+    private void reserveABook() {
         int bookNumber = chooseABook(reader);
         List<Integer> booksKeys = new ArrayList<Integer>();
         booksKeys.add(1);

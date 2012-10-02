@@ -83,16 +83,6 @@ public class ProgramTest {
     }
 
     @Test
-    public void invalid_entry() {
-        System.setOut(new PrintStream(outputStream));
-        System.setIn(stubInputStream().toReturn("a").then(EXIT_CODE).atSomePoint());
-
-        launchApp();
-
-        assertThat(outputStream.toString(), containsString("Enter a valid integer!!"));
-    }
-
-    @Test
     public void show_movie_listing() {
         System.setOut(new PrintStream(outputStream));
         System.setIn(stubInputStream().toReturn(MOVIE_LISTING).then(EXIT_CODE).atSomePoint());
