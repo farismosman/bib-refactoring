@@ -2,13 +2,16 @@ package test;
 
 import main.Program;
 import org.junit.After;
-import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
+import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.containsString;
 import static test.StubbedInputStream.stubInputStream;
-
-import java.io.*;
 
 public class ProgramTest {
     private PrintStream console;
@@ -137,7 +140,8 @@ public class ProgramTest {
     }
 
     private void launchApp() {
-        Program.main(new String[]{});
+        Program program = new Program();
+        program.main(new String[]{});
     }
 
     @After

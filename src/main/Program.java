@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Program {
-    private static boolean loggedIn = false;
-    private static String savedLibraryNumber = "";
+    private boolean loggedIn = false;
+    private String savedLibraryNumber = "";
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         while (true) {
             welcomeMessage();
             menuOption();
@@ -100,7 +100,7 @@ public class Program {
         }
     }
 
-    private static void checkLibNumber() {
+    private void checkLibNumber() {
         if (loggedIn()) {
             System.out.println("\n");
             System.out.println("Your library number is " + savedLibraryNumber);
@@ -111,14 +111,14 @@ public class Program {
         }
     }
 
-    private static void allBooks() {
+    private void allBooks() {
         System.out.println(" 1. Sweet Valley High vol. 4 by John Travolta ");
         System.out.println(" 2. eXtreme Programming Explained by Kent Beck ");
         System.out.println(" 3. How to Win Friends and Influence People by Dale Carnagie ");
         System.out.println(" 4. How to Cheat at TWU Assignements by Anonymous ");
     }
 
-    private static void menuOption() {
+    private void menuOption() {
         System.out.println("*                Menu                                    *");
         System.out.println("*         =====================                          *");
         System.out.println("*         1. List Book Catalog                           *");
@@ -131,31 +131,31 @@ public class Program {
         System.out.println("Your Selection: ");
     }
 
-    private static void welcomeMessage() {
+    private void welcomeMessage() {
         System.out.println("**********************************************************");
         System.out.println("* Welcome to The Bangalore Public Library System - Biblioteca *");
         System.out.println("**********************************************************");
     }
 
-    private static boolean validPassword(String password) {
+    private boolean validPassword(String password) {
         return "bhaisahab".equals(password);
     }
 
-    private static boolean validLibraryNumber(String libraryNumber) {
+    private boolean validLibraryNumber(String libraryNumber) {
         return libraryNumber.matches("\\d\\d\\d-\\d\\d\\d\\d");
     }
 
-    private static boolean loggedIn() {
+    private boolean loggedIn() {
         return loggedIn;
     }
 
 
-    private static void clearLogin() {
+    private void clearLogin() {
         loggedIn = false;
         savedLibraryNumber = "";
     }
 
-    private static String createMovie(String movieTitle, String movieDirector, String movieRanking) {
+    private String createMovie(String movieTitle, String movieDirector, String movieRanking) {
         return movieTitle + " - Director: " + movieDirector + " Rating: " + movieRanking;
     }
 }
