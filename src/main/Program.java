@@ -17,14 +17,7 @@ public class Program {
             welcomeMessage();
             menuOption();
 
-            int userInput = 0;
-            try {
-                String value = reader.readLine();
-                userInput = Integer.parseInt(value);
-            } catch (Exception e) {
-                // Do you know what numbers are!!!
-                System.out.println("Enter a valid integer!!");
-            }
+            int userInput = getInput();
             if (userInput == 1) {
                 allBooks();
             } else if (userInput == 2) {
@@ -62,6 +55,18 @@ public class Program {
                 System.out.println("Enter a valid integer!!");
             }
         }
+    }
+
+    private int getInput() {
+        int userInput = 0;
+        try {
+            String value = reader.readLine();
+            userInput = Integer.parseInt(value);
+        } catch (Exception e) {
+            // Do you know what numbers are!!!
+            System.out.println("Enter a valid integer!!");
+        }
+        return userInput;
     }
 
     private void allMovies() {
