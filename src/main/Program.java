@@ -2,18 +2,21 @@ package main;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Program {
     private boolean loggedIn = false;
     private String savedLibraryNumber = "";
+
+    InputStreamReader inputStream = new InputStreamReader(System.in);
+    BufferedReader reader = new BufferedReader(inputStream);
 
     public void main(String[] args) {
         while (true) {
             welcomeMessage();
             menuOption();
 
-            InputStreamReader inputStream = new InputStreamReader(System.in);
-            BufferedReader reader = new BufferedReader(inputStream);
             int i1 = 0;
             try {
                 String value = reader.readLine();
@@ -26,28 +29,7 @@ public class Program {
             if (i1 == 1) {
                 allBooks();
             } else if (i1 == 2) {
-                int i2 = chooseABook(reader);
-                switch (i2) {
-                    case 1:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
-                        break;
-                    case 2:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
-                        break;
-                    case 3:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
-                        break;
-                    case 4:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
-                        break;
-                    default:
-                        System.out.println("\n");
-                        System.out.println("Sorry we don't have that book yet.");
-                }
+                processBook();
             } else if (i1 == 3) {
                 checkLibNumber();
             } else if (i1 == 4) {
@@ -89,6 +71,20 @@ public class Program {
                 System.out.println("\n");
                 System.out.println("Enter a valid integer!!");
             }
+        }
+    }
+
+    private void processBook() {
+        int bookNumber = chooseABook(reader);
+        List<Integer> booksKeys = new ArrayList<Integer>();
+        booksKeys.add(1);
+        booksKeys.add(2);
+        booksKeys.add(3);
+        booksKeys.add(4);
+        if (booksKeys.contains(bookNumber)){
+            System.out.println("\n Thank You! Enjoy the book.");
+        } else {
+            System.out.println("\nSorry we don't have that book yet.");
         }
     }
 
