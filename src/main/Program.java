@@ -28,24 +28,7 @@ public class Program {
                 allMovies();
             } else if (userInput == 5) {
                 clearLogin();
-                System.out.println("Enter your library number");
-                try {
-                    String libraryNumber = reader.readLine();
-                    if (validLibraryNumber(libraryNumber)) {
-                        try {
-                            System.out.println("Enter your Password: ");
-                            String password = reader.readLine();
-                            if (validPassword(password)) {
-                                loggedIn = true;
-                                savedLibraryNumber = libraryNumber;
-                            }
-                        } catch (Exception e) {
-
-                        }
-                    }
-                } catch (Exception e) {
-
-                }
+                loginUser();
 
             } else if (userInput == 9) {
                 System.out.println("Quitting...");
@@ -54,6 +37,27 @@ public class Program {
                 System.out.println("\n");
                 System.out.println("Enter a valid integer!!");
             }
+        }
+    }
+
+    private void loginUser() {
+        System.out.println("Enter your library number");
+        try {
+            String libraryNumber = reader.readLine();
+            if (validLibraryNumber(libraryNumber)) {
+                System.out.println("Enter your Password: ");
+                try {
+                    String password = reader.readLine();
+                    if (validPassword(password)) {
+                        loggedIn = true;
+                        savedLibraryNumber = libraryNumber;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Invalid password");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid username");
         }
     }
 
@@ -111,12 +115,10 @@ public class Program {
 
     private void checkLibNumber() {
         if (loggedIn()) {
-            System.out.println("\n");
-            System.out.println("Your library number is " + savedLibraryNumber);
+            System.out.println("\nYour library number is " + savedLibraryNumber);
         } else {
 
-            System.out.println("\n");
-            System.out.println("Please talk to Librarian. Thank you.");
+            System.out.println("\nPlease talk to Librarian. Thank you.");
         }
     }
 
