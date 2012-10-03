@@ -4,6 +4,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Program {
+    private final int VIEW_ALL_BOOKS = 1;
+    private final int RESERVE_A_BOOK = 2;
+    private final int CHECK_LIB_NUMBER = 3;
+    private final int VIEW_ALL_MOVIES = 4;
+    private final int LOGIN = 5;
+    private final int QUIT = 9;
     private boolean loggedIn = false;
     private String savedLibraryNumber = "";
 
@@ -19,18 +25,18 @@ public class Program {
             menu.menuOption();
 
             int userInput = Integer.parseInt(getInput());
-            if (userInput == 1) {
+            if (userInput == VIEW_ALL_BOOKS) {
                 booksFactory.books();
-            } else if (userInput == 2) {
+            } else if (userInput == RESERVE_A_BOOK) {
                 reserveABook();
-            } else if (userInput == 3) {
+            } else if (userInput == CHECK_LIB_NUMBER) {
                 checkLibNumber();
-            } else if (userInput == 4) {
+            } else if (userInput == VIEW_ALL_MOVIES) {
                 moviesFactory.movies();
-            } else if (userInput == 5) {
+            } else if (userInput == LOGIN) {
                 clearLogin();
                 loginUser();
-            } else if (userInput == 9) {
+            } else if (userInput == QUIT) {
                 System.out.println("Quitting...");
                 break;
             } else {
